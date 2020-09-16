@@ -1,0 +1,286 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema# NOT SURE",
+    "title": "Medical History NOT SURE",
+    "description": "Core schema meta-schema",
+    "definitions": {},
+
+    "files_list": [
+        "Patient Database.csv",
+        "Admission and discharge.csv",
+        "Historical Antibiotic.csv",
+        "Legionella.csv",
+        "MRSA.csv",
+        "Multiplex PCR.csv", 
+        "Sputum Culture.csv",
+        "ICD10 codes.csv",
+        "Spetic shock.csv",
+        "Neutrophils.csv", 
+        "Problem list.csv",
+        "Procalcitonin.csv",
+        "CRP.csv", 
+        "Monocyte.csv",
+        "Neut Absolute.csv",
+        "WBC.csv"
+    ],
+
+    "schema1": 
+    {
+        "title": "Patient Database",
+        "filepath":".../Patient Database.csv",
+        "filename": "Patient Database.csv",
+        "file_description": "This list contains the list of treatments for pneumonia patients whose antibiotic treatment started between 01-Jan-2016 and 31-Dec-2018",
+        "extension": "csv",
+        "header": "True",
+        "num_cols": 0,
+        "num_rows": 10459,
+        "num_missing_records": 0,
+        "type":"object",
+        "properties":
+        {
+            "Age at start of audit": {
+                "description":"Patient age at the start of audit.",
+                "minimum": 21,
+                "maximum": 99,
+                "type": "integer"
+            },
+            "Gender": {
+                "description":"Patient gender", 
+                "Male": 6108,
+                "Female": 4350,
+                "type": "string"
+            },
+            "General high dependency icu": {
+                "description": "Ward where patient was given the antibiotics", 
+                "General":7961, 
+                "High Dependancy":1076, 
+                "ICU": 1422,
+                "type":"category"
+            },
+            "recently_hospitalized": {
+                "description":"Hospitalization >48hrs in past 90 days before current hospital admission (i.e. does not consider current/index admission)",
+                "type": "string"},
+                
+            "Audited_abx":
+            {   "description":"Initial antibiotic audited by a doctor",
+                "Piperacillin / tazobactum":8441,
+                "Ciprofloxacin Injections": 21,
+                "Doripenem Injections": 3,
+                "Ertapenem Injections": 26,
+                "Tienam Injections [Imipenem, cilastin]": 13,
+                "Levofloxacin injection": 832,
+                "Meropenem Injections": 1132,
+                "PA_Carbapenem meropenem, Imipenem and Doripenem": 1148,
+                "type":"string"
+            },
+            "Dose": {
+                "description":"The quantity of antibiotics to be administered",
+                "type":"float"
+            },
+            "UOM": {
+                "description":"Unit of measure",
+                "type":"string"}, 
+            "Frequency":{
+                "description":"How often the antibiotics is administered to the patient",
+                "type":"float"
+            },
+            "Top up Dose": {
+                "description":"Indicates if the patient requires an additional dose",
+                "type":"float"
+            },
+            "Major body system": {
+                "description":"This refers to the location of the body where the initial issue was diagnosed",
+                "type":"string"
+            },
+            "Id_condition":{
+                "description":"Description of the illness",
+                "type":"string"
+            },
+            "Antibiotic Started on":{
+                "description":"Start of treatment",
+                "type":"date"
+            },
+            "Antibiotic Stopped on":{
+                "description":"End of treatment",
+                "type":"date"
+            },
+            "Dialysis Type":{
+                "description":"Indicates if the patient is under dialysis and the type of dialysis the patientis under",
+                "type":"string"
+            },
+            "Allergy":{
+                "description":"The types of salts which a patient is allegric to",
+                "type":"string"
+            },
+            "Immunocompromised":{
+                "description":"Whether patient has immunology issues. May be recoded to YES/NO",
+                "type":"string"
+            },
+            "Final Reason for Inappropriateness":{
+                "description":"Reasons for inappropriateness can be due to choice, dose/administration, route or duration",
+                "INAPP CHOICE":542,
+                "INAPP DURATION":203,
+                "INAPP ROUTE":35,
+                "INAPP DOSE/ADMINISTRATION":18,
+                "INAPP CHOICE; INAPP DURATION":6,
+                "INAPP CHOICE; INAPP DOSE ADMINISTRAION":3,
+                "INAPP DURATION; INAPP ROUTE":1,
+                "type":"string"
+            },
+            "Race_grp":{
+                "description":"Patient racial affiliation",
+                "Chinese":7932,
+                "Malay":1213,
+                "Indian":811,
+                "Others":503,
+                "type":"category"}
+        }
+    },
+
+    "Admission and discharge.csv":
+    {
+        "filepath":".../Admission and discharge.csv",
+        "filename": "Admission and discharge.csv",
+        "file_description": "The admission and discharge dates for the patients for all visits within the timeframe. Received time of admission and discharge is on 2 sep 2019",
+        "extension": "csv",
+        "header": "True",
+        "num_cols": 0,
+        "num_rows": 105844,
+        "num_missing_records": 0,
+        "attributes": "no attributes were used in the model"
+    },
+
+    "Historical Antibiotic.csv":
+    {
+        "filepath":".../Historical Antibiotic.csv",
+        "attributes":
+        {
+            "Drug_dispensed_date_from": {"type":"date"},
+            "Dispensed_quantity": {"type":"float"},
+            "Dispensed_quantity_uom": {"type":"string"},
+            "Generic_drug_name":{"type":"string"}
+        }
+    },
+
+    "Legionella.csv":
+    {
+        "filepath":".../Legionella.csv",
+        "attributes":
+        {
+            "Result_value": {"type":"float"}
+        }
+    },
+
+    "MRSA.csv":
+    {
+        "filepath":".../MRSA.csv",
+        "attributes":
+        {
+            "Reported_date":{"type":"date"}
+        }
+    },
+
+    "Multiplex PCR.csv":
+    {
+        "filepath":".../Multiplex PCR.csv",
+        "attributes":
+        {
+            "Reported_date": {"type":"date"},
+            "Result_value": {"type":"float"}
+        }
+    },
+
+    "Sputum Culture.csv":
+    {
+        "filepath":".../Sputum Culture.csv",
+        "attributes":
+        {
+            "Reported_date": {"type":"date"},
+            "Antibiotic list": {"type":"string"}
+        }
+    },
+
+    "ICD10 codes.csv": 
+    {
+        "filepath":".../ICD10 codes.csv",
+        "attributes":
+        {
+            "Diagnosis_date": {"type":"date"},
+            "Diagnosis_code_icd10": {"type":"string"}
+        }
+    },
+
+    "Spetic shock.csv":
+    {
+        "filepath":".../Spetic shock.csv",
+        "attributes":
+        {
+            "drug_dispensed_date_from":{"type":"date"},
+            "generic_drug_name": {"type":"string"}
+        }
+    },
+
+    "Neutrophils.csv":
+    {
+        "filepath":".../Neutrophils.csv",
+        "attributes":
+        {
+            "Reported_date":{"type":"date"},
+            "Result_value":{"type":"float"},
+            "Reference_ranges":{"type":"float"}
+        }
+    },
+
+    "Problem list.csv":
+    {
+        "filepath":".../Problem list.csv",
+        "attributes":
+        {
+
+        }
+    },
+
+    "Procalcitonin.csv":
+    {
+        "filepath":".../Procalcitonin.csv",
+        "attributes":
+        {
+        
+        }
+    },
+
+    "CRP.csv":
+    {
+        "filepath":".../CRP.csv",
+        "attributes":
+        {
+            "result_value":{"type":"float"}
+        }
+    },
+
+    "Monocyte.csv":
+    {
+        "filepath":".../Monocyte.csv",
+        "attributes":
+        {
+            "result_value":{"type":"float"}
+        }
+    },
+
+    "Neut Absolute.csv":
+    {
+        "filepath":".../Neut Absolute.csv",
+        "attributes":
+        {
+            "result_value":{"type":"float"}
+        }
+    },
+
+    "WBC.csv":
+    {
+        "filepath":".../WBC.csv",
+        "attributes":
+        {
+            
+        }
+    }
+}
